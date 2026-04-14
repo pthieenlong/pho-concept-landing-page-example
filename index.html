@@ -437,11 +437,21 @@
         opacity: 1;
         transform: translateX(0);
       }
-      #mobile-menu-panel.is-open .mobile-nav-link:nth-child(1) { transition-delay: 80ms; }
-      #mobile-menu-panel.is-open .mobile-nav-link:nth-child(2) { transition-delay: 130ms; }
-      #mobile-menu-panel.is-open .mobile-nav-link:nth-child(3) { transition-delay: 180ms; }
-      #mobile-menu-panel.is-open .mobile-nav-link:nth-child(4) { transition-delay: 230ms; }
-      #mobile-menu-panel.is-open .mobile-nav-link:nth-child(5) { transition-delay: 280ms; }
+      #mobile-menu-panel.is-open .mobile-nav-link:nth-child(1) {
+        transition-delay: 80ms;
+      }
+      #mobile-menu-panel.is-open .mobile-nav-link:nth-child(2) {
+        transition-delay: 130ms;
+      }
+      #mobile-menu-panel.is-open .mobile-nav-link:nth-child(3) {
+        transition-delay: 180ms;
+      }
+      #mobile-menu-panel.is-open .mobile-nav-link:nth-child(4) {
+        transition-delay: 230ms;
+      }
+      #mobile-menu-panel.is-open .mobile-nav-link:nth-child(5) {
+        transition-delay: 280ms;
+      }
       .mobile-nav-link,
       .mobile-nav-link:nth-child(1),
       .mobile-nav-link:nth-child(2),
@@ -486,7 +496,9 @@
         gap: 1rem;
         opacity: 0;
         transform: translateY(12px);
-        transition: opacity 350ms ease 350ms, transform 350ms ease 350ms;
+        transition:
+          opacity 350ms ease 350ms,
+          transform 350ms ease 350ms;
       }
       #mobile-menu-panel.is-open .mobile-menu-footer {
         opacity: 1;
@@ -506,9 +518,13 @@
         text-align: center;
         display: block;
         width: 100%;
-        transition: opacity 200ms ease, transform 150ms ease;
+        transition:
+          opacity 200ms ease,
+          transform 150ms ease;
       }
-      .mobile-cta:active { transform: scale(0.97); }
+      .mobile-cta:active {
+        transform: scale(0.97);
+      }
       .mobile-tagline {
         font-size: 0.58rem;
         letter-spacing: 0.12em;
@@ -1918,25 +1934,49 @@
     <div id="mobile-menu-overlay" aria-hidden="true"></div>
 
     <!-- Mobile / Tablet drawer panel -->
-    <aside id="mobile-menu-panel" aria-label="Mobile navigation" aria-hidden="true">
+    <aside
+      id="mobile-menu-panel"
+      aria-label="Mobile navigation"
+      aria-hidden="true"
+    >
       <div class="mobile-menu-header">
         <span class="mobile-menu-logo-text">Pho Concept</span>
       </div>
 
       <nav class="mobile-nav-links" aria-label="Mobile nav links">
-        <a class="mobile-nav-link active" href="#section-home"   data-section="section-home">
+        <a
+          class="mobile-nav-link active"
+          href="#section-home"
+          data-section="section-home"
+        >
           <span class="mobile-link-num">01</span>Home
         </a>
-        <a class="mobile-nav-link" href="#section-about"   data-section="section-about">
+        <a
+          class="mobile-nav-link"
+          href="#section-about"
+          data-section="section-about"
+        >
           <span class="mobile-link-num">02</span>About
         </a>
-        <a class="mobile-nav-link" href="#section-menu"    data-section="section-menu">
+        <a
+          class="mobile-nav-link"
+          href="#section-menu"
+          data-section="section-menu"
+        >
           <span class="mobile-link-num">03</span>Menu
         </a>
-        <a class="mobile-nav-link" href="#section-reserve" data-section="section-reserve">
+        <a
+          class="mobile-nav-link"
+          href="#section-reserve"
+          data-section="section-reserve"
+        >
           <span class="mobile-link-num">04</span>Reserve
         </a>
-        <a class="mobile-nav-link" href="#section-location" data-section="section-location">
+        <a
+          class="mobile-nav-link"
+          href="#section-location"
+          data-section="section-location"
+        >
           <span class="mobile-link-num">05</span>Location
         </a>
       </nav>
@@ -2061,66 +2101,67 @@
     <script>
       /* ── Hamburger / Mobile menu ── */
       (function () {
-        var btn     = document.querySelector('.nav-hamburger');
-        var panel   = document.getElementById('mobile-menu-panel');
-        var overlay = document.getElementById('mobile-menu-overlay');
-        var mobileLinks = document.querySelectorAll('.mobile-nav-link');
+        var btn = document.querySelector(".nav-hamburger");
+        var panel = document.getElementById("mobile-menu-panel");
+        var overlay = document.getElementById("mobile-menu-overlay");
+        var mobileLinks = document.querySelectorAll(".mobile-nav-link");
 
         function openMenu() {
-          btn.classList.add('is-open');
-          btn.setAttribute('aria-expanded', 'true');
-          panel.classList.add('is-open');
-          panel.setAttribute('aria-hidden', 'false');
-          overlay.classList.add('is-open');
-          document.body.style.overflow = 'hidden';
+          btn.classList.add("is-open");
+          btn.setAttribute("aria-expanded", "true");
+          panel.classList.add("is-open");
+          panel.setAttribute("aria-hidden", "false");
+          overlay.classList.add("is-open");
+          document.body.style.overflow = "hidden";
         }
 
         function closeMenu() {
-          btn.classList.remove('is-open');
-          btn.setAttribute('aria-expanded', 'false');
-          panel.classList.remove('is-open');
-          panel.setAttribute('aria-hidden', 'true');
-          overlay.classList.remove('is-open');
-          document.body.style.overflow = '';
+          btn.classList.remove("is-open");
+          btn.setAttribute("aria-expanded", "false");
+          panel.classList.remove("is-open");
+          panel.setAttribute("aria-hidden", "true");
+          overlay.classList.remove("is-open");
+          document.body.style.overflow = "";
         }
 
-        btn.addEventListener('click', function () {
-          var isOpen = panel.classList.contains('is-open');
+        btn.addEventListener("click", function () {
+          var isOpen = panel.classList.contains("is-open");
           isOpen ? closeMenu() : openMenu();
         });
 
         /* Close on overlay tap */
-        overlay.addEventListener('click', closeMenu);
+        overlay.addEventListener("click", closeMenu);
 
         /* Close when a mobile nav link is clicked */
         mobileLinks.forEach(function (link) {
-          link.addEventListener('click', function () {
+          link.addEventListener("click", function () {
             closeMenu();
             /* Mirror active state to desktop links */
             var section = link.dataset.section;
-            document.querySelectorAll('.nav-link').forEach(function (l) {
-              l.classList.toggle('active', l.dataset.section === section);
+            document.querySelectorAll(".nav-link").forEach(function (l) {
+              l.classList.toggle("active", l.dataset.section === section);
             });
             mobileLinks.forEach(function (l) {
-              l.classList.toggle('active', l.dataset.section === section);
+              l.classList.toggle("active", l.dataset.section === section);
             });
           });
         });
 
         /* Close on Escape */
-        document.addEventListener('keydown', function (e) {
-          if (e.key === 'Escape' && panel.classList.contains('is-open')) closeMenu();
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && panel.classList.contains("is-open"))
+            closeMenu();
         });
 
         /* Sync mobile active link with desktop active link */
-        var desktopLinks = document.querySelectorAll('.nav-link[data-section]');
+        var desktopLinks = document.querySelectorAll(".nav-link[data-section]");
         function syncActiveSection(section) {
           mobileLinks.forEach(function (l) {
-            l.classList.toggle('active', l.dataset.section === section);
+            l.classList.toggle("active", l.dataset.section === section);
           });
         }
         desktopLinks.forEach(function (link) {
-          link.addEventListener('click', function () {
+          link.addEventListener("click", function () {
             syncActiveSection(link.dataset.section);
           });
         });
@@ -2160,7 +2201,7 @@
           >LAS VEGAS, NEVADA</span
         >
         <h1
-          class="text-6xl md:text-8xl font-black text-white leading-none tracking-tighter uppercase mb-8"
+          class="text-4xl md:text-6xl font-black text-white leading-none tracking-tighter uppercase mb-8"
         >
           VIETNAMESE PHO. <br />
           <span class="text-primary-fixed-dim">SIMPLIFIED FOR</span> <br />
@@ -3122,14 +3163,19 @@
             WHY CHOOSE US
           </h2>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-6">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-6"
+        >
           <div
             class="bg-surface-container-low p-7 md:p-8 lg:p-10 rounded-xl border border-outline-variant/10 hover:border-primary/30 transition-colors"
           >
-            <span class="material-symbols-outlined text-primary text-4xl mb-5 md:mb-6"
+            <span
+              class="material-symbols-outlined text-primary text-4xl mb-5 md:mb-6"
               >schedule</span
             >
-            <h4 class="text-base md:text-lg font-black text-white mb-3 md:mb-4 uppercase">
+            <h4
+              class="text-base md:text-lg font-black text-white mb-3 md:mb-4 uppercase"
+            >
               SLOW-SIMMERED
             </h4>
             <p class="text-sm text-on-surface-variant leading-relaxed">
@@ -3139,10 +3185,13 @@
           <div
             class="bg-surface-container-low p-7 md:p-8 lg:p-10 rounded-xl border border-outline-variant/10 hover:border-primary/30 transition-colors"
           >
-            <span class="material-symbols-outlined text-primary text-4xl mb-5 md:mb-6"
+            <span
+              class="material-symbols-outlined text-primary text-4xl mb-5 md:mb-6"
               >eco</span
             >
-            <h4 class="text-base md:text-lg font-black text-white mb-3 md:mb-4 uppercase">
+            <h4
+              class="text-base md:text-lg font-black text-white mb-3 md:mb-4 uppercase"
+            >
               CLEAN INGREDIENTS
             </h4>
             <p class="text-sm text-on-surface-variant leading-relaxed">
@@ -3152,10 +3201,13 @@
           <div
             class="bg-surface-container-low p-7 md:p-8 lg:p-10 rounded-xl border border-outline-variant/10 hover:border-primary/30 transition-colors"
           >
-            <span class="material-symbols-outlined text-primary text-4xl mb-5 md:mb-6"
+            <span
+              class="material-symbols-outlined text-primary text-4xl mb-5 md:mb-6"
               >bolt</span
             >
-            <h4 class="text-base md:text-lg font-black text-white mb-3 md:mb-4 uppercase">
+            <h4
+              class="text-base md:text-lg font-black text-white mb-3 md:mb-4 uppercase"
+            >
               FAST SERVICE
             </h4>
             <p class="text-sm text-on-surface-variant leading-relaxed">
@@ -3165,10 +3217,13 @@
           <div
             class="bg-surface-container-low p-7 md:p-8 lg:p-10 rounded-xl border border-outline-variant/10 hover:border-primary/30 transition-colors"
           >
-            <span class="material-symbols-outlined text-primary text-4xl mb-5 md:mb-6"
+            <span
+              class="material-symbols-outlined text-primary text-4xl mb-5 md:mb-6"
               >location_on</span
             >
-            <h4 class="text-base md:text-lg font-black text-white mb-3 md:mb-4 uppercase">
+            <h4
+              class="text-base md:text-lg font-black text-white mb-3 md:mb-4 uppercase"
+            >
               VEGAS-BORN
             </h4>
             <p class="text-sm text-on-surface-variant leading-relaxed">
